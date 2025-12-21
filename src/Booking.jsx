@@ -19,7 +19,7 @@ const Booking = () => {
         console.log('Entries from selector:', result);
         return result;
     });
-    // Diagnostic: detect if any booking entry contains a React element object
+   
     useEffect(() => {
         if (!Array.isArray(entries)) return;
         entries.forEach((entry, idx) => {
@@ -97,7 +97,6 @@ const Booking = () => {
     }
 
 
-    // Filter out any entries that accidentally contain React elements
     const cleanEntries = Array.isArray(entries)
         ? entries.filter(entry => {
             if (!entry || typeof entry !== 'object') return false;

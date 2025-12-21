@@ -11,7 +11,7 @@ export const addBookingSlice = createSlice ({
 
        addBooking: (state, action) => {
             const b = action.payload;
-            // Skapa ett rent objekt med bara de fält vi vill ha
+           
             const newEntry = {
                 id: b.id === undefined || b.id === null ? '' : String(b.id),
                 title: b.title === undefined || b.title === null ? '' : String(b.title),
@@ -28,7 +28,6 @@ export const addBookingSlice = createSlice ({
                 return;
             }
 
-            // Sanitize each booking to ensure primitives only and strip any React elements
             const sanitized = payload
                 .filter(b => b && typeof b === 'object')
                 .map(b => ({
