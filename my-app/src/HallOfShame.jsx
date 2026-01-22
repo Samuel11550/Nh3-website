@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import axios from "axios";
-import { addEntry, deleteEntry } from "./hallOfShameSlice";
+import { addEntry, deleteEntry, getList } from "./hallOfShameSlice";
 import { useNavigate } from 'react-router-dom';
 import './HallOfShame.css';
 
