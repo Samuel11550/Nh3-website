@@ -1,0 +1,13 @@
+# Playwright 
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
+
+# React & Node
+my-app/node_modules/
+my-app/build/
+.env
+.DS_Store
