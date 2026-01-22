@@ -10,4 +10,4 @@ node_modules/
 my-app/node_modules/
 my-app/build/
 .env
-.DS_Store
+.DS_Storegit 
