@@ -1,0 +1,119 @@
+/* CSS Reset for Full Screen */
+html, body, #root {
+    margin: 0;
+    padding: 0;
+    height: 100%; 
+    width: 100%;
+    overflow-x: hidden;
+    font-family: sans-serif; /* Recommended for readability */
+}
+
+/* --- HOS BACKGROUND & LAYOUT --- */
+.HOS-background {
+    /* Layout: Full screen container (background set inline in component to use /public files) */
+    min-height: 100vh; /* Allows scrolling if content overflows */
+    width: 100%;
+
+    /* Flexbox for vertical content alignment */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    justify-content: flex-start; /* Start content from the top */
+}
+
+/* --- HOS STICKY HEADER --- */
+/* Denna klass hanterar all layout och mobilanpassning */
+/* Grundinställningar för Headern */
+.HOS-header {
+    width: 100%;
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    background-color: #f5f5f5; /* Fallback färg */
+    
+    /* Använd variabler för bilderna så React inte kraschar */
+    background-image: var(--emoji-url), var(--bg-url);
+    background-repeat: no-repeat;
+    
+    /* Standardinställningar för dator (dina värden) */
+    background-size: 10.1%, 50%;
+    background-position: 27.7% center, center;
+    
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+/* MOBILANPASSNING (Här fixar vi bilderna för telefoner) */
+@media (max-width: 768px) {
+    .HOS-header {
+        font-size: 22px; /* Mindre text på mobil */
+        padding: 15px 0;
+        
+        /* På mobil vill vi att bakgrunden ska täcka mer (cover) 
+           och emojin ska flyttas så den inte täcker texten */
+        background-size: 20%, cover; 
+        background-position: 5% center, center;
+        
+        /* Extra: Lägg till en liten mörkare toning så texten syns bra */
+        background-blend-mode: multiply;
+        background-color: rgba(255, 255, 255, 0.9);
+    }
+}
+
+/* --- CONTENT CONTAINER (LIST & FORM) --- */
+.shame-list-container {
+    /* Sizing & Appearance */
+    width: 90%; 
+    max-width: 600px; 
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* Opaque background for text */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    
+    /* Positioning */
+    margin-top: 100px; /* Space below the sticky header */
+    margin-bottom: 50px;
+    position: relative;
+    z-index: 5;
+}
+
+/* --- FORM STYLING --- */
+.complaint-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+    margin-top: 20px;
+}
+
+.complaint-form input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.complaint-form button, .remove-button, .return-button {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* --- LIST STYLING --- */
+.shame-list-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.shame-list-container li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px dashed #ddd;
+}
