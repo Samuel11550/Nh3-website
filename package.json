@@ -4,9 +4,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "install-frontend": "cd my-app && npm install",
-    "build-frontend": "cd my-app && npm run build",
-    "railway-build": "npm run install-frontend && npm run build-frontend"
+    "build": "cd my-app && npm install && npm run build"
   },
   "dependencies": {
     "cors": "^2.8.6",
