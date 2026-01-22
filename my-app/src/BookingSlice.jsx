@@ -4,7 +4,7 @@ import axios from "axios";
 export const addBooking = createAsyncThunk('/api/booking/addBooking',
     async (newBooking, { rejectWithValue }) => {
         try {
-            const response = await axios.post("/booking", newBooking);
+            const response = await axios.post("/api/booking", newBooking);
             return response.data;
         } catch (error) {
             return rejectWithValue(error.response?.data?.error || 'Kunde inte boka');
@@ -14,7 +14,7 @@ export const addBooking = createAsyncThunk('/api/booking/addBooking',
 
 export const deleteBooking = createAsyncThunk('/api/booking/deleteBooking', 
     async (id) => {
-        const response = await axios.delete(`/booking/${id}`);
+        const response = await axios.delete(`/api/booking/${id}`);
         return id;
     }
 
@@ -23,7 +23,7 @@ export const deleteBooking = createAsyncThunk('/api/booking/deleteBooking',
 
 export const getList = createAsyncThunk('/api/booking/getList', 
     async () => {
-        const response = await axios.get("/booking"); 
+        const response = await axios.get("/api/booking"); 
         return response.data;
     }
 );

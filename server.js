@@ -35,7 +35,7 @@ app.delete('/api/hallofshame/:id', async (req, res) => {
 
     try {
         const [result] = await db.query('DELETE FROM nominations WHERE id = ?', [id]);
-        if (result.affectedRows === 0) return res.status(404).json({ error: 'Hittade ingen med det ID:t' }); //borde aldrig hända
+        if (result.affectedRows === 0) return res.status(404).json({ error: 'Hittade ingen med det ID:t' }); 
         res.status(200).json({ id });
 
     } catch (error) {

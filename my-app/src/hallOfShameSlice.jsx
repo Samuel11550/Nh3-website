@@ -14,8 +14,8 @@ export const addEntry = createAsyncThunk('HallOfShame/addEntry',
 
 export const deleteEntry = createAsyncThunk('/HallOfShame/deleteEntry', 
     async (id) => {
-        const response =  await axios.delete(`"/api/hallofshame"/deleteEntry/${id}`);
-        console.log("React anropar nu adressen:", `"/api/hallofshame"/deleteEntry/${id}`);
+        const response = await axios.delete(`/api/hallofshame/${id}`);
+        console.log("React anropar nu adressen:", `/api/hallofshame/${id}`);
         return id;
     }
 );
