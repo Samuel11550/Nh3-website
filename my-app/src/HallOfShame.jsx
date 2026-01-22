@@ -10,6 +10,10 @@ const HallOfShame = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
+    useEffect(() => {
+        dispatch(getList());
+    }, [dispatch])
+
     const [Data, setData] = useState({
         name: '',
         complaint: '',
