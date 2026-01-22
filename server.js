@@ -128,8 +128,19 @@ app.delete('/api/booking/:id', async (req, res) => {
     }
 })
 
+const buildPath = path.join(__dirname, 'my-app', 'build');
+console.log("Servern letar efter frontend i:", buildPath);
+
+
+app.use(express.static(buildPath));
+
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'my-app', 'build', 'index.html'));
+    res.sendFile(path.join(buildPath, 'index.html'), (err) => {
+        if (err) {
+            console.error("Kunde inte skicka index.html:", err);
+            res.status(404).send("Frontend-filerna saknas på servern. Har du kört 'npm run build'?");
+        }
+    });
 });
 
 const PORT = process.env.PORT || 3000;
